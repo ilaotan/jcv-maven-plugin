@@ -56,6 +56,35 @@
 </plugin>
 ```
 
+```xml
+<!-- spring boot config-->
+<!-- js css -->
+<plugin>
+	<groupId>com.iqarr.maven.plugin</groupId>
+	<artifactId>jcv-maven-plugin</artifactId>
+	<version>1.0.1</version>
+	<executions>
+		 <execution>  
+        <id>process</id>  
+        <phase>process-resources</phase>  
+        <goals>  
+          <goal>process-springboot</goal>                     
+        </goals>  
+    </execution>  
+	</executions>
+	<configuration>
+		<suffixs>
+			<param>html</param>
+		</suffixs>
+		<clearPageComment>true</clearPageComment>
+		<globaJsMethod>MD5_METHOD</globaJsMethod>
+		<globaCssMethod>MD5_METHOD</globaCssMethod>
+		<compressionJs>true</compressionJs>
+		<compressionCss>true</compressionCss>
+	</configuration>
+</plugin>
+```
+
 ### 配置war插件
 ```xml
      <plugin>
@@ -95,7 +124,7 @@ mvn clean package
 
 `version 1.0.0`
   1. 支持截取指定长度的version.
-  
+
 `version 0.0.6`
   1. 优化整个压缩流程.
   2. 修复部分bug
