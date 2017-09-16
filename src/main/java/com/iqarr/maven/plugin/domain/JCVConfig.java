@@ -54,10 +54,13 @@ public class JCVConfig {
 	
 	/**
 	 * 全局js　头部适合于　/${demoApp}/js/demo.js
+	 *    demoApp 为静态路径 
+	 *       可以理解demoApp 为 webapp下排除路径
 	 */
 	private String globaJslPrefixPath;
 	/**
 	 * 全局css　头部适合于　/${demoApp}/css/demo.css
+	 *    demoApp 为静态路径 可以理解demoApp 为 webapp下排除路径
 	 */
 	private String globaCsslPrefixPath;
 	

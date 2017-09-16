@@ -91,10 +91,23 @@ public class JCVMojo extends BaseMojo {
         
         //version 6.1
         if(null!=jsConstantName &&!"".equals(jsConstantName)){
-            jcvConfig.setJsConstantName(jsConstantName);
+            int indexOf = jsConstantName.indexOf('\\');
+            if(indexOf!=-1){
+                jcvConfig.setJsConstantName(jsConstantName.substring(indexOf+1, jsConstantName.length()));          
+            }else {
+                jcvConfig.setJsConstantName(jsConstantName);
+            }
         }
         if(null!=cssConstantName &&!"".equals(cssConstantName)){
-            jcvConfig.setCssConstantName(cssConstantName);
+            
+            int indexOf = cssConstantName.indexOf('\\');
+            if(indexOf!=-1){
+                jcvConfig.setCssConstantName(cssConstantName.substring(indexOf+1, jsConstantName.length()));
+            }else {
+                jcvConfig.setCssConstantName(cssConstantName);
+            }
+            
+           
         }
         
         if(null!=jsConstantAliasPath &&!"".equals(jsConstantAliasPath)){

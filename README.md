@@ -16,100 +16,10 @@
 # Quick Start
 
 ## 引入maven依赖
+java-web配置见wiki: [Example-java-web](https://github.com/byzy/jcv-maven-plugin/wiki/Example-java-web "Example-java-web")
 
-```xml
-<plugin>
-	<groupId>com.iqarr.maven.plugin</groupId>
-	<artifactId>jcv-maven-plugin</artifactId>
-	<version>1.0.0</version>
-		<executions>
-			<execution>
-			<id>process</id>
-			<phase>package</phase>
-				<goals>
-					<goal>process</goal>
-				</goals>
-			</execution>
-		</executions>
-		<configuration>
-			<baseJsDomin>
-				<param>http://script.iqarr.com</param>
-			</baseJsDomin>
-			<baseCssDomin>
-				<param>http://style.iqarr.com</param>
-				<param>http://script.iqarr.com</param>
-			</baseCssDomin>
-			<!--需要处理文件后缀-->
-			<suffixs>
-				<param>html</param>
-				<param>jsp</param>
-			</suffixs>
-			<!--清理页面注释-->
-			<clearPageComment>true</clearPageComment>
-			<globaJsMethod>MD5_METHOD</globaJsMethod>
-			<globaCssMethod>MD5_METHOD</globaCssMethod>
-			<!-- 压缩js-->
-			<compressionJs>true</compressionJs>
-			<!-- 压缩css-->
-			<compressionCss>true</compressionCss>
-		</configuration>
-</plugin>
-```
+springBoot配置见wiki:[Example-springBoot](https://github.com/byzy/jcv-maven-plugin/wiki/Example-springBoot "Example-springBoot")
 
-```xml
-<!-- spring boot config-->
-<!-- js css -->
-<plugin>
-	<groupId>com.iqarr.maven.plugin</groupId>
-	<artifactId>jcv-maven-plugin</artifactId>
-	<version>1.0.1</version>
-	<executions>
-		 <execution>  
-        <id>process</id>  
-        <phase>process-resources</phase>  
-        <goals>  
-          <goal>process-springboot</goal>                     
-        </goals>  
-    </execution>  
-	</executions>
-	<configuration>
-		<suffixs>
-			<param>html</param>
-		</suffixs>
-		<clearPageComment>true</clearPageComment>
-		<globaJsMethod>MD5_METHOD</globaJsMethod>
-		<globaCssMethod>MD5_METHOD</globaCssMethod>
-		<compressionJs>true</compressionJs>
-		<compressionCss>true</compressionCss>
-	</configuration>
-</plugin>
-```
-
-### 配置war插件
-```xml
-     <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-war-plugin</artifactId>
-         <version>2.6</version>
-         <configuration>
-            <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
-            <encoding>${build.source.encoding}</encoding>
-            <!--如果使用md5文件名　就必须排除相应的js css  ,**/*.js,**/*.css-->
-            <!--在使用普通的模式的时候需要配置jsp html -->
-            <warSourceExcludes>**/*.html,**/*.jsp</warSourceExcludes>
-                 <webResources>
-			<resource>
-				<directory>${basedir}/src/main/webapp/js/common</directory>
-				<includes>
-					<include>config.js</include>
-				</includes>
-				<filtering>true</filtering>
-				<targetPath>js/common</targetPath>
-			</resource>
-		 </webResources>
-         </configuration>
-       </plugin>
-```
 ### 打包
 
 ```
@@ -118,6 +28,9 @@ mvn clean package
 ```
 
 ### 新版本特性
+`version 1.0.2`
+  1. bug fix.
+  2. 修改文档.
 
 `version 1.0.1`
   1. 支持spring boot.
@@ -146,3 +59,7 @@ mvn clean package
 ### 参数说明
 
 详细参数说明: [参数说明](/README_PARAMETER.md "参数说明")
+
+### wiki
+
+[wiki](https://github.com/byzy/jcv-maven-plugin/wiki/"wiki")

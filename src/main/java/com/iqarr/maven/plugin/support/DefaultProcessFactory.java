@@ -216,7 +216,8 @@ public class DefaultProcessFactory extends AbstractProcessFactory {
             jcv.setFile(f);
             // version 6.0
             if (null != jcvConfig.getJsConstantName() && !"".equals(jcvConfig.getJsConstantName())) {
-                path = jcvConfig.getJsConstantName() + JCVConstant.HTML_PATH_SEPARATED + path;
+                //path = jcvConfig.getJsConstantName() + JCVConstant.HTML_PATH_SEPARATED + path;
+                path = jcvConfig.getJsConstantName()  + path;
             }
             collected.put(path, jcv);
             jcv = null;
@@ -280,7 +281,8 @@ public class DefaultProcessFactory extends AbstractProcessFactory {
             }
             // version 6.0
             if (null != jcvConfig.getCssConstantName() && !"".equals(jcvConfig.getCssConstantName())) {
-                path = jcvConfig.getCssConstantName() + JCVConstant.HTML_PATH_SEPARATED + path;
+              //  path = jcvConfig.getCssConstantName() + JCVConstant.HTML_PATH_SEPARATED + path;
+                path = jcvConfig.getCssConstantName() + path;
             }
             collected.put(path, jcv);
             jcv = null;

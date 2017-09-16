@@ -53,6 +53,7 @@ public abstract class BaseMojo extends AbstractMojo{
     
     /**
      * 全局js文件前缀  最中计算路径 baseCssDomin+globaJslPrefixPath+实际地址
+     *    该地址指物理路径
      * 不配置该属性，就从根目录全部扫描
      */
     @Parameter(defaultValue ="")
@@ -60,6 +61,7 @@ public abstract class BaseMojo extends AbstractMojo{
     
     /**
      * 全局css文件前缀
+     *   该地址指物理路径 该地址指物理路径
      * 不配置该属性，就从根目录全部扫描
      */
     @Parameter(defaultValue ="")
@@ -131,6 +133,7 @@ public abstract class BaseMojo extends AbstractMojo{
     
     /**
      * js常量名称 jsConstantName/jspath
+     *  \ 转义 ${parar}
      */
     @Parameter
     protected String jsConstantName;

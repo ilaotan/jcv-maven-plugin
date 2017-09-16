@@ -554,14 +554,14 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
         JCVFileInfo jcvFileInfo = null;
         StringBuilder fullLink = new StringBuilder ();
         
-        String globalPrefixPath = "";
+      //  String globalPrefixPath = "";
         List<String> baseDomin = null;
         if (JCVFileInfo.CSS.equals (fileType)) {
-            globalPrefixPath = jCVConfig.getGlobaCsslPrefixPath ();
+          //  globalPrefixPath = jCVConfig.getGlobaCsslPrefixPath ();
             baseDomin = jCVConfig.getBaseCssDomin ();
         }
         else if (JCVFileInfo.JS.equals (fileType)) {
-            globalPrefixPath = jCVConfig.getGlobaJslPrefixPath ();
+         //   globalPrefixPath = jCVConfig.getGlobaJslPrefixPath ();
             baseDomin = jCVConfig.getBaseJsDomin ();
         }
         else {
@@ -573,7 +573,7 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
             // 绝对
             for (String domain : baseDomin) {
                 fullLink.append (domain);
-                if (null != globalPrefixPath && !"".equals (globalPrefixPath)) {
+                /*if (null != globalPrefixPath && !"".equals (globalPrefixPath)) {
                     if (!fullLink.toString ().endsWith (HTML_URL_SEPARATOR)) {
                         fullLink.append (HTML_URL_SEPARATOR);
                     }
@@ -584,7 +584,7 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
                         fullLink.append (globalPrefixPath);
                     }
                     
-                }
+                }*/
                 String tempUrl = historylink.replaceFirst (fullLink.toString (),"");
                 if (tempUrl != null && tempUrl.startsWith (HTML_URL_SEPARATOR)) {
                     tempUrl = tempUrl.replaceFirst (HTML_URL_SEPARATOR,"");
@@ -602,12 +602,12 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
             // 相对
             //支持常量名称 version
             fullLink.append (historylink);
-            if (globalPrefixPath.startsWith (HTML_URL_SEPARATOR)) {
+          /*  if (globalPrefixPath.startsWith (HTML_URL_SEPARATOR)) {
                 fullLink.append (globalPrefixPath.replaceFirst (HTML_URL_SEPARATOR,""));
             }
             else {
                 fullLink.append (globalPrefixPath);
-            }
+            }*/
             fullLink = new StringBuilder (removeUrlPar (fullLink.toString ()));
             if (fullLink.indexOf (HTML_URL_SEPARATOR,0) == 0) {
                 fullLink.delete (0,1);
@@ -622,6 +622,9 @@ public abstract class AbstractProcessFactory implements ProcessFactory {
         
         return 0;
     }
+    
+  
+    
     
     /**
      * 插入版本号.
